@@ -1,0 +1,42 @@
+<!DOCTYPE html>  
+<html>  
+  <head>
+        <meta charset="utf-8">
+        <title>PLANT DISEASE DETECTION</title>
+        <link rel="shortcut icon" href="{{ url_for('static', filename='heart-favicon.ico') }}">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+        <script src="https://kit.fontawesome.com/5f3f547070.js" crossorigin="anonymous"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    </head>
+  <body>
+  	<div class="container">
+            <h2 class='container-heading'><span class="heading_font" style="color:white;font-size:60px;">PLANT DISEASE DETECTION</span></h2>
+    	</div>
+    {% if disease %}
+     <p style="color:black;font-size:30px;"> {{disease}}</p>
+     {% else %}
+   {% endif %}
+
+    {% if treatment %}
+     <p style="color:red;font-size:40px;"> Treatment:<br> <b style="color:black;font-size:20px;"> {{treatment}} </b></p>
+     {% else %}
+   {% endif %}
+   <div class="ml-container">
+        <form action="{{ url_for('upload_page') }}" method="POST">
+        <input  type="submit" class="my-cta-button"  value="BACK">
+          </form>
+        <form action="{{ url_for('symptoms') }}" method="POST">
+        <input  type="submit" class="my-cta-button"  value="Symptoms">
+          </form>
+    </div>
+
+    
+    <div class='footer'>
+           <div class="contact">
+               <a target="_blank" href="https://github.com/Shobhit2526"><i class="fab fa-github fa-lg contact-icon"></i></a>
+               <a target="_blank" href="https://www.linkedin.com/in/shobhit-ram-chaurasiya-b71b13193/"><i class="fab fa-linkedin fa-lg contact-icon"></i></a>
+           </div>
+           <p class='footer-description' style="color:black;font-size:30px;">Made by SHOBHIT,ABHISHEK,AYUSH.</p>
+       </div>
+  </body>
+</html>

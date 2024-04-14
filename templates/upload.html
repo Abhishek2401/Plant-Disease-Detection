@@ -1,0 +1,67 @@
+<!DOCTYPE html>  
+<html>  
+ <head>
+        <meta charset="utf-8">
+        <title>PLANT DISEASE DETECTION</title>
+        <link rel="shortcut icon" href="{{ url_for('static', filename='heart-favicon.ico') }}">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+        <script src="https://kit.fontawesome.com/5f3f547070.js" crossorigin="anonymous"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    </head>
+ <body>
+   <div class="container">
+            <h2 class='container-heading'><span class="heading_font">PLANT DISEASE DETECTION</span></h2>
+  </div>
+
+   {% if msg %}
+   <h1>{{ msg }}</h1>
+   {% endif %}
+
+   <h1>Upload new File</h1>
+
+   <form method=post enctype=multipart/form-data>
+     <p><input type=file name=file>
+        <input type=submit value=Upload>
+   </form>
+
+   <h1></h1>
+   {% if img_src %}
+     <p class="aligncenter">
+     <img class="marginauto" src="{{ img_src }}" alt="centered image" width="300" height="300">
+     </p>
+   {% endif %}
+
+   {%if disease%}
+
+   {% if(disease == 'Apple___healthy' or disease == 'Blueberry___healthy' or disease == 'Cherry_(including_sour)___healthy'
+               or disease == 'Corn_(maize)___healthy' or disease == 'Grape___healthy'or disease == 'Peach___healthy' 
+               or disease == 'Pepper,_bell___healthy' or disease == 'Potato___healthy' or disease == 'Raspberry___healthy'
+              or disease == 'Soybean___healthy' or disease == 'Strawberry___healthy' or disease == 'Tomato___healthy') %}
+     <p style="color:red;font-size:40px;"> NO DISEASE DETECTED: <br> <b style="color:black;font-size:20px;"> {{ disease }} </b></p>
+
+
+   {% else %}
+   <p style="color:red;font-size:40px;"> DISEASE DETECTED: <br> <b style="color:black;font-size:20px;"> {{ disease }} </b></p>
+   {% endif %}
+   {% endif %}
+
+   <br>
+   <div class="ml-container">
+        <form action="{{ url_for('treatment') }}" method="POST">
+        <input  type="submit" class="my-cta-button"  value="TREATMENT">
+        </form>
+        <form action="{{ url_for('symptoms') }}" method="POST">
+        <input  type="submit" class="my-cta-button"  value="SYMPTOMS">
+          </form>
+
+    </div>
+
+   <div class='footer'>
+           <div class="contact">
+               <a target="_blank" href="https://github.com/Shobhit2526"><i class="fab fa-github fa-lg contact-icon"></i></a>
+               <a target="_blank" href="https://www.linkedin.com/in/shobhit-ram-chaurasiya-b71b13193/"><i class="fab fa-linkedin fa-lg contact-icon"></i></a>
+           </div>
+           <p class='footer-description' style="color:black;font-size:30px;">Made by SHOBHIT,ABHISHEK,AYUSH.</p>
+       </div>
+ </body>
+</html>  
